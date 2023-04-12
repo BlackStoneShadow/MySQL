@@ -13,8 +13,8 @@ CREATE TABLE phones(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 	product_name VARCHAR(45) NOT NULL, 
 	manufacturer VARCHAR(45) NOT NULL,
-	product_count INT UNSIGNED,
-	price INT UNSIGNED
+	product_count INT UNSIGNED DEFAULT 0,
+	price DECIMAL
 );
 
 INSERT INTO phones(product_name, manufacturer, product_count, price) VALUES
