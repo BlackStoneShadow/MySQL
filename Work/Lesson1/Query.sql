@@ -8,7 +8,7 @@ DROP DATABASE IF EXISTS lesson_1;
 CREATE DATABASE lesson_1;
 USE lesson_1;
 
--- студенты
+-- телефоны
 CREATE TABLE phones(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 	product_name VARCHAR(45) NOT NULL, 
