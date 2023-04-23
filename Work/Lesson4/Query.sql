@@ -5,8 +5,8 @@ SELECT
 	COUNT(l.id) as like_count
 FROM users u
 INNER JOIN profiles p ON p.user_id = u.id
-LEFT JOIN media m on m.user_id = u.id
-LEFT JOIN likes l ON l.media_id = m.id
+INNER JOIN media m on m.user_id = u.id
+INNER JOIN likes l ON l.media_id = m.id
 WHERE p.birthday > SUBDATE(CURDATE(), INTERVAL 12 YEAR);
 
 -- Определить кто больше поставил лайков (всего): мужчины или женщины.
