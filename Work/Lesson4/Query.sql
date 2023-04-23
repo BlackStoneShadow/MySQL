@@ -2,13 +2,12 @@ USE lesson_4;
 
 -- Подсчитать общее количество лайков, которые получили пользователи младше 12 лет.
 SELECT 
-	CONCAT_WS(" ", u.firstname, u.lastname) AS full_name, COUNT(l.id) as like_count
+	COUNT(l.id) as like_count
 FROM users u
 INNER JOIN profiles p ON p.user_id = u.id
 LEFT JOIN media m on m.user_id = u.id
 LEFT JOIN likes l ON l.media_id = m.id
-WHERE p.birthday > SUBDATE(CURDATE(), INTERVAL 12 YEAR)
-GROUP BY full_name;
+WHERE p.birthday > SUBDATE(CURDATE(), INTERVAL 12 YEAR);
 
 -- Определить кто больше поставил лайков (всего): мужчины или женщины.
 SELECT
