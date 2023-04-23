@@ -18,7 +18,7 @@ SELECT
 	COUNT(l.id) as like_count
 FROM users u
 INNER JOIN profiles p ON p.user_id = u.id
-LEFT JOIN likes l ON l.user_id = u.id
+INNER JOIN likes l ON l.user_id = u.id
 GROUP BY gender
 ORDER BY like_count DESC
 LIMIT 1;
