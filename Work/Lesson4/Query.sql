@@ -38,7 +38,8 @@ SELECT
 	CONCAT_WS(" ", f.firstname, f.lastname) AS full_name,
 	COUNT(m.id) AS messages_count
 FROM users u
-INNER JOIN friend_requests r ON r.target_user_id = u.id AND r.status = "approved"
+INNER JOIN friend_requests r ON r.target_user_id = u.id AND r.status = "approved" 
+							 OR r.initiator_user_id = u.id AND r.status = "approved" 
 INNER JOIN messages m ON m.from_user_id = r.initiator_user_id AND m.to_user_id = u.id
 INNER JOIN users f ON f.id = r.initiator_user_id
 WHERE u.id = 1
