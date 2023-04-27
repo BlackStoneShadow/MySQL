@@ -22,10 +22,10 @@ SELECT * FROM v_users;
 SELECT 
 	u.firstname, 
 	u.lastname,
-	COUNT(*) AS count_message,
-	DENSE_RANK() OVER(ORDER BY COUNT(*) DESC) AS rank_user 
-FROM messages m
-INNER JOIN users u ON u.id = m.from_user_id
+	COUNT(m.id) AS count_message,
+	DENSE_RANK() OVER(ORDER BY COUNT(m.id) DESC) AS rank_user 
+FROM users u
+LEFT JOIN messages m ON u.id = m.from_user_id
 GROUP BY u.firstname, u.lastname;
 
 -- 3. Выберите все сообщения, отсортируйте сообщения по возрастанию даты отправления (created_at) 
